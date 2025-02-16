@@ -9,6 +9,8 @@ import (
 type Handler struct {
 	File interface {
 		SaveFile(w http.ResponseWriter, r *http.Request)
+		GetFiles(w http.ResponseWriter, r *http.Request)
+		GetFile(w http.ResponseWriter, r *http.Request)
 	}
 }
 

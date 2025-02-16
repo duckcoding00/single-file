@@ -32,6 +32,10 @@ func WriteErr(w http.ResponseWriter, statusCode int, err error) error {
 		message = "INTERNAL SERVER ERROR"
 	}
 
+	if statusCode == http.StatusMethodNotAllowed {
+		message = "METHOD NOT ALLOWED"
+	}
+
 	return writeJSON(w, statusCode, RespErr{
 		Message: message,
 		Error:   err.Error(),

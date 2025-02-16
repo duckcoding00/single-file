@@ -38,6 +38,8 @@ func (a *Application) RegisterRoute() {
 	}).Methods("GET")
 
 	apiRouter.HandleFunc("/upload", a.config.handler.File.SaveFile).Methods("POST")
+	apiRouter.HandleFunc("/images", a.config.handler.File.GetFiles).Methods("GET")
+	apiRouter.HandleFunc("/images/{filename}", a.config.handler.File.GetFile).Methods("GET")
 }
 
 func (a *Application) Run() {
