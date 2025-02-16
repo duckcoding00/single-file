@@ -1,6 +1,6 @@
 package main
 
-import "github.com/duckcoding00/go-template/cmd/api"
+import "github.com/duckcoding00/single-file/cmd/api"
 
 func main() {
 	api.InitServer()

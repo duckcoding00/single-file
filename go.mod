@@ -1,4 +1,4 @@
-module github.com/duckcoding00/go-template
+module github.com/duckcoding00/single-file
 
 go 1.24.0
 
