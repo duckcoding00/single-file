@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/duckcoding00/single-file/internal/handler"
 	"github.com/gorilla/mux"
 )
 
@@ -14,7 +15,8 @@ type Application struct {
 }
 
 type AppConfig struct {
-	addr string
+	handler handler.Handler
+	addr    string
 }
 
 func NewApp(config AppConfig) *Application {
@@ -34,6 +36,8 @@ func (a *Application) RegisterRoute() {
 			"message": "ok",
 		})
 	}).Methods("GET")
+
+	apiRouter.HandleFunc("/upload", a.config.handler.File.SaveFile).Methods("POST")
 }
 
 func (a *Application) Run() {

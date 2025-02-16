@@ -1,8 +1,12 @@
 package api
 
+import "github.com/duckcoding00/single-file/internal/handler"
+
 func InitServer() {
+	handler := handler.NewHandler()
 	config := AppConfig{
-		addr: ":8080",
+		handler: handler,
+		addr:    ":8080",
 	}
 
 	app := NewApp(config)
